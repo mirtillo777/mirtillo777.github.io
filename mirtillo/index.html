@@ -7,39 +7,30 @@
 
   <!-- Open Graph / Social -->
   <meta property="og:title" content="Mirtillo ($MIRTI) – Solana Devnet" />
-  <meta property="og:description" content="Token di test Mirtillo ($MIRTI) su Solana Devnet. Metadati pubblici e logo." />
-  <meta property="og:image" content="https://mirtillo777.github.io/thetest/logo.png" />
-  <meta property="og:url" content="https://mirtillo777.github.io/thetest/" />
+  <meta property="og:description" content="Token di test Mirtillo ($MIRTI) su Solana Devnet. Metadati pubblici, logo e tokenomics." />
+  <meta property="og:image" content="https://mirtillo777.github.io/mirtillo/logo.png" />
+  <meta property="og:url" content="https://mirtillo777.github.io/mirtillo/" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="icon" href="logo.png" type="image/png" />
   <style>
     :root {
-      --bg: #0b0f14;
-      --card: #121822;
-      --text: #e7f0ff;
-      --muted: #9db2ce;
-      --accent: #7ec8ff;
-      --accent2: #9cffc2;
-      --border: #1e2a3a;
+      --bg: #0b0f14; --card: #121822; --text: #e7f0ff; --muted: #9db2ce;
+      --accent: #7ec8ff; --accent2: #9cffc2; --border: #1e2a3a;
     }
     * { box-sizing: border-box; }
-    html, body { margin:0; padding:0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    html, body { margin:0; padding:0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial; }
+    a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
     .wrap { max-width: 980px; margin: 0 auto; padding: 32px 20px 64px; }
     .card {
       background: linear-gradient(180deg, rgba(126,200,255,0.06), rgba(156,255,194,0.04));
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
+      border: 1px solid var(--border); border-radius: 16px; padding: 24px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.02);
     }
     .row { display: grid; grid-template-columns: 140px 1fr; gap: 20px; align-items: center; }
     @media (max-width: 640px) { .row { grid-template-columns: 1fr; text-align: center; } }
     .logo {
-      width: 140px; height: 140px;
-      border-radius: 20px; border: 1px solid var(--border);
+      width: 140px; height: 140px; border-radius: 20px; border: 1px solid var(--border);
       background: #0e141c url("logo.png") center/contain no-repeat;
     }
     h1 { margin: 0 0 6px; font-size: 32px; letter-spacing: 0.2px; }
@@ -47,18 +38,16 @@
     p.muted { color: var(--muted); margin-top: 6px; }
     .grid { display: grid; gap: 12px; margin-top: 22px; grid-template-columns: repeat(2, minmax(0,1fr)); }
     @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
-    .tile {
-      border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; background: #0f1622;
-    }
+    .tile { border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; background: #0f1622; }
     .k { color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; }
     .v { margin-top: 6px; word-wrap: anywhere; }
     .btns { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
     .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 10px 14px; border-radius: 10px; border:1px solid var(--border);
-      background: #0f1622; color: var(--text); text-decoration: none; font-weight: 600;
+      display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 10px;
+      border:1px solid var(--border); background: #0f1622; color: var(--text); text-decoration: none; font-weight: 600;
     }
     .btn:hover { filter: brightness(1.08); }
+    .section-title { margin: 26px 0 10px; font-size: 18px; color: var(--accent); letter-spacing: 0.02em; }
     .footer { margin-top: 28px; color: var(--muted); font-size: 13px; text-align: center; }
     code.inline { background:#0b121b; padding:2px 6px; border-radius:6px; border:1px solid var(--border); }
   </style>
@@ -70,7 +59,7 @@
         <div class="logo" aria-label="Logo Mirtillo"></div>
         <div>
           <h1>Mirtillo <span class="symbol">($MIRTI)</span></h1>
-          <p class="muted">Token di test su <strong>Solana Devnet</strong> con metadati pubblici e logo ospitati su GitHub Pages.</p>
+          <p class="muted">Token di test su <strong>Solana Devnet</strong> con metadati pubblici, logo e tokenomics.</p>
 
           <div class="grid">
             <div class="tile">
@@ -96,24 +85,49 @@
             <a class="btn" href="./logo.png" target="_blank" rel="noopener">Apri logo.png</a>
             <a class="btn" id="explorerLink" href="#" target="_blank" rel="noopener">Apri su Solana Explorer (Devnet)</a>
           </div>
+
+          <div class="section-title">Tokenomics</div>
+          <div class="grid">
+            <div class="tile">
+              <div class="k">Total Supply</div>
+              <div id="supply" class="v">—</div>
+            </div>
+            <div class="tile">
+              <div class="k">Decimals</div>
+              <div id="decimals" class="v">—</div>
+            </div>
+            <div class="tile">
+              <div class="k">Mint Authority</div>
+              <div id="mintAuth" class="v">—</div>
+            </div>
+            <div class="tile">
+              <div class="k">Freeze Authority</div>
+              <div id="freezeAuth" class="v">—</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="footer">
-      Suggerimento: aggiorna il mint address direttamente qui nel file (<code class="inline">MINT_MIRTI</code>)
-      oppure fai leggere automaticamente i metadati dal JSON.
+      Suggerimento: aggiorna il mint address dentro <code class="inline">MINT_MIRTI</code>.
+      I dati tokenomics sono letti on-chain via Solana RPC.
     </div>
   </div>
 
-  <script>
-    // 1) imposta qui il tuo mint di $MIRTI (Devnet)
-    //    sostituisci con l'indirizzo reale dopo il mint (es. 9s...XYZ)
-    const MINT_MIRTI = CrsZTBu4Kq4UZAqiEArgjn7grfLvouN7eUDTEHhvwLt;
+  <!-- web3.js in modalità IIFE (espone 'solanaWeb3' come global) -->
+  <script src="https://unpkg.com/@solana/web3.js@1.95.0/lib/index.iife.min.js"></script>
 
-    // 2) popola UI
+  <script>
+    // 1) Imposta qui il tuo mint di $MIRTI (Devnet)
+    const MINT_MIRTI = "CrsZTBu4Kq4UZAqiEArgjn7grfLvouN7eUDTEHhvwLt";
+
+    // 2) Utilità
     const $id = (x) => document.getElementById(x);
-    if (MINT_MIRTI && MINT_MIRTI !== CrsZTBu4Kq4UZAqiEArgjn7grfLvouN7eUDTEHhvwLt) {
+    const fmt = (n) => new Intl.NumberFormat('en-US', { maximumFractionDigits: 9 }).format(n);
+
+    // 3) Popola campi base + link explorer
+    if (MINT_MIRTI && MINT_MIRTI !== "INSERISCI_IL_TUO_MINT_ADDRESS") {
       $id("mintAddr").textContent = MINT_MIRTI;
       $id("explorerLink").href = `https://explorer.solana.com/address/${MINT_MIRTI}?cluster=devnet`;
     } else {
@@ -121,7 +135,7 @@
       $id("explorerLink").href = "https://explorer.solana.com/?cluster=devnet";
     }
 
-    // 3) leggi i metadati dalla tua pagina GitHub (stesso folder)
+    // 4) Leggi metadati “off-chain” dal JSON (nome/simbolo)
     fetch("./metadata.json")
       .then(r => r.ok ? r.json() : null)
       .then(meta => {
@@ -130,6 +144,36 @@
         if (meta.symbol) $id("symbol").textContent = meta.symbol;
       })
       .catch(() => {});
+
+    // 5) Tokenomics on-chain via Solana RPC
+    (async () => {
+      try {
+        const { Connection, PublicKey } = solanaWeb3;
+        const RPC_URL = "https://api.devnet.solana.com";
+        const conn = new Connection(RPC_URL, "confirmed");
+        const mintPk = new PublicKey(MINT_MIRTI);
+
+        // a) supply/decimals (comodo con getTokenSupply)
+        const supplyInfo = await conn.getTokenSupply(mintPk);
+        $id("supply").textContent = supplyInfo.value.uiAmountString ?? fmt(supplyInfo.value.uiAmount || 0);
+        $id("decimals").textContent = String(supplyInfo.value.decimals);
+
+        // b) mint & freeze authority (via getParsedAccountInfo)
+        const acc = await conn.getParsedAccountInfo(mintPk);
+        const parsed = acc.value?.data?.parsed?.info;
+        const mintAuth = parsed?.mintAuthority ?? null;
+        const freezeAuth = parsed?.freezeAuthority ?? null;
+
+        $id("mintAuth").textContent   = mintAuth ? mintAuth : "— (none)";
+        $id("freezeAuth").textContent = freezeAuth ? freezeAuth : "— (none)";
+      } catch (e) {
+        console.error(e);
+        $id("supply").textContent = "Errore lettura RPC";
+        $id("decimals").textContent = "—";
+        $id("mintAuth").textContent = "—";
+        $id("freezeAuth").textContent = "—";
+      }
+    })();
   </script>
 </body>
 </html>
