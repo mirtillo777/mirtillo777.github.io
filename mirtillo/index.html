@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mirtillo ($MIRTI) – Solana Devnet</title>
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Mirtillo ($MIRTI) – Solana Devnet" />
+  <meta property="og:description" content="Token di test Mirtillo ($MIRTI) su Solana Devnet. Metadati pubblici e logo." />
+  <meta property="og:image" content="https://mirtillo777.github.io/thetest/logo.png" />
+  <meta property="og:url" content="https://mirtillo777.github.io/thetest/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="logo.png" type="image/png" />
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --card: #121822;
+      --text: #e7f0ff;
+      --muted: #9db2ce;
+      --accent: #7ec8ff;
+      --accent2: #9cffc2;
+      --border: #1e2a3a;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin:0; padding:0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 32px 20px 64px; }
+    .card {
+      background: linear-gradient(180deg, rgba(126,200,255,0.06), rgba(156,255,194,0.04));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.02);
+    }
+    .row { display: grid; grid-template-columns: 140px 1fr; gap: 20px; align-items: center; }
+    @media (max-width: 640px) { .row { grid-template-columns: 1fr; text-align: center; } }
+    .logo {
+      width: 140px; height: 140px;
+      border-radius: 20px; border: 1px solid var(--border);
+      background: #0e141c url("logo.png") center/contain no-repeat;
+    }
+    h1 { margin: 0 0 6px; font-size: 32px; letter-spacing: 0.2px; }
+    .symbol { font-weight: 700; color: var(--accent2); }
+    p.muted { color: var(--muted); margin-top: 6px; }
+    .grid { display: grid; gap: 12px; margin-top: 22px; grid-template-columns: repeat(2, minmax(0,1fr)); }
+    @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+    .tile {
+      border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; background: #0f1622;
+    }
+    .k { color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .v { margin-top: 6px; word-wrap: anywhere; }
+    .btns { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 14px; border-radius: 10px; border:1px solid var(--border);
+      background: #0f1622; color: var(--text); text-decoration: none; font-weight: 600;
+    }
+    .btn:hover { filter: brightness(1.08); }
+    .footer { margin-top: 28px; color: var(--muted); font-size: 13px; text-align: center; }
+    code.inline { background:#0b121b; padding:2px 6px; border-radius:6px; border:1px solid var(--border); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="row">
+        <div class="logo" aria-label="Logo Mirtillo"></div>
+        <div>
+          <h1>Mirtillo <span class="symbol">($MIRTI)</span></h1>
+          <p class="muted">Token di test su <strong>Solana Devnet</strong> con metadati pubblici e logo ospitati su GitHub Pages.</p>
+
+          <div class="grid">
+            <div class="tile">
+              <div class="k">Mint address</div>
+              <div id="mintAddr" class="v">—</div>
+            </div>
+            <div class="tile">
+              <div class="k">Rete</div>
+              <div class="v">Solana <strong>Devnet</strong></div>
+            </div>
+            <div class="tile">
+              <div class="k">Nome</div>
+              <div id="name" class="v">Mirtillo</div>
+            </div>
+            <div class="tile">
+              <div class="k">Simbolo</div>
+              <div id="symbol" class="v">$MIRTI</div>
+            </div>
+          </div>
+
+          <div class="btns">
+            <a class="btn" href="./metadata.json" target="_blank" rel="noopener">Apri metadata.json</a>
+            <a class="btn" href="./logo.png" target="_blank" rel="noopener">Apri logo.png</a>
+            <a class="btn" id="explorerLink" href="#" target="_blank" rel="noopener">Apri su Solana Explorer (Devnet)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      Suggerimento: aggiorna il mint address direttamente qui nel file (<code class="inline">MINT_MIRTI</code>)
+      oppure fai leggere automaticamente i metadati dal JSON.
+    </div>
+  </div>
+
+  <script>
+    // 1) imposta qui il tuo mint di $MIRTI (Devnet)
+    //    sostituisci con l'indirizzo reale dopo il mint (es. 9s...XYZ)
+    const MINT_MIRTI = CrsZTBu4Kq4UZAqiEArgjn7grfLvouN7eUDTEHhvwLt;
+
+    // 2) popola UI
+    const $id = (x) => document.getElementById(x);
+    if (MINT_MIRTI && MINT_MIRTI !== CrsZTBu4Kq4UZAqiEArgjn7grfLvouN7eUDTEHhvwLt) {
+      $id("mintAddr").textContent = MINT_MIRTI;
+      $id("explorerLink").href = `https://explorer.solana.com/address/${MINT_MIRTI}?cluster=devnet`;
+    } else {
+      $id("mintAddr").textContent = "⚠️ Imposta MINT_MIRTI dentro index.html";
+      $id("explorerLink").href = "https://explorer.solana.com/?cluster=devnet";
+    }
+
+    // 3) leggi i metadati dalla tua pagina GitHub (stesso folder)
+    fetch("./metadata.json")
+      .then(r => r.ok ? r.json() : null)
+      .then(meta => {
+        if (!meta) return;
+        if (meta.name)   $id("name").textContent   = meta.name;
+        if (meta.symbol) $id("symbol").textContent = meta.symbol;
+      })
+      .catch(() => {});
+  </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "Mirtillo",
+  "symbol": "MIRTI",
+  "description": "Token di test Mirtillo ($MIRTI) su Solana Devnet. Metadati e logo pubblici ospitati su GitHub Pages.",
+  "image": "https://mirtillo777.github.io/thetest/logo.png",
+  "external_url": "https://mirtillo777.github.io/thetest/",
+  "attributes": [
+    { "trait_type": "Project", "value": "Mirtillo Test Token" },
+    { "trait_type": "Network", "value": "Solana Devnet" }
+  ]
+}
